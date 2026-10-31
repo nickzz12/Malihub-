@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MaliHub</title>
+<style>
+:root{--bg:#eef1f6;--cd:#fff;--tx:#10131a;--mu:#5d6778;--ac:#0e9f8e;--bd:#dfe4ec;--bad:#dc2626;--on:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0d13;--cd:#141922;--tx:#e8eef7;--mu:#8c97a9;--ac:#2dd4bf;--bd:#232b38;--bad:#f87171;--on:#04120f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a0d13;--cd:#141922;--tx:#e8eef7;--mu:#8c97a9;--ac:#2dd4bf;--bd:#232b38;--bad:#f87171;--on:#04120f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:84px}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 14px 4px}
+.lg{font-size:20px;font-weight:800;letter-spacing:-.3px}
+.cd{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:14px;margin:12px 14px}
+.cd h3{margin:0 0 6px;font-size:16px}
+.hero{margin:10px 14px;padding:22px 18px;border-radius:20px;color:#fff;background:linear-gradient(135deg,#0f766e,#4f46e5)}
+.hero h1{margin:0 0 6px;font-size:26px;line-height:1.15;letter-spacing:-.5px}
+.hero p{margin:0 0 16px;opacity:.9}
+.hero .bt{background:#fff;color:#0f172a}.hero .bt.g{background:rgba(255,255,255,.22);color:#fff}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.bt{border:0;border-radius:12px;padding:11px 16px;font:inherit;font-weight:700;background:var(--ac);color:var(--on)}
+.bt.s{padding:8px 14px;flex:1}.fi{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.ch{padding:7px 12px;border-radius:999px;border:1px solid var(--bd);background:transparent;color:var(--tx);font:inherit;font-size:13px}
+.ch.on{background:var(--ac);color:var(--on);border-color:var(--ac);font-weight:700}
+.lb{display:flex;justify-content:space-between;gap:10px;margin:12px 0 6px;font-size:14px}.lb span{color:var(--mu)}
+.mu,.tr small,.hint{color:var(--mu);font-size:13px}
+.hint{margin:8px 0 0}
+.tr{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--bd)}
+.tr small{display:block}
+.sw{flex:none;width:46px;height:27px;border:0;border-radius:14px;background:var(--bd);position:relative}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:transform .15s}
+.sw.on{background:var(--ac)}.sw.on::after{transform:translateX(19px)}
+input[type=range]{width:100%;accent-color:var(--ac)}
+input[type=text]{flex:1;min-width:0;padding:11px 12px;border-radius:12px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit}
+.bar{height:8px;border-radius:4px;background:var(--bd);overflow:hidden}.bar i{display:block;height:100%;background:var(--ac)}
+.gr{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 14px}
+.gc{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.cv{height:96px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:38px;font-weight:800}
+.gc b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.em{margin:28px 24px;text-align:center;color:var(--mu)}
+.cod{margin:10px 0;padding:10px;border-radius:12px;background:var(--bg);border:1px solid var(--bd);font:12px/1.55 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;white-space:pre;max-height:280px;overflow-y:auto}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--cd);border-top:1px solid var(--bd);padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;border:0;background:none;color:var(--mu);font:inherit;font-size:12px;padding:6px 0;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button span{font-size:20px;line-height:1}nav button.on{color:var(--ac);font-weight:700}
+#ov{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;z-index:20}#ov[hidden]{display:none}
+.sh{background:var(--cd);width:100%;max-height:88%;overflow:auto;border-radius:20px 20px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px))}
+ul{margin:6px 0 0;padding-left:18px}li{margin:4px 0}
+</style></head><body>
+<header><span class="lg">▲ MaliHub</span><span id="gp" class="ch"></span></header>
+<main id="v"></main>
+<div id="ov" hidden></div>
+<nav>
+<button data-t="home" onclick="go('home')"><span>⌂</span>Início</button>
+<button data-t="lib" onclick="go('lib')"><span>▦</span>Biblioteca</button>
+<button data-t="opt" onclick="go('opt')"><span>⚡</span>Otimizar</button>
+</nav>
+<script>
+const $=s=>document.querySelector(s),E=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const BX={stab:{BIGBLOCK:0,STRONGMEM:2,SAFEFLAGS:2,FASTNAN:0,FASTROUND:0,CALLRET:0},mid:{BIGBLOCK:1,STRONGMEM:1,SAFEFLAGS:1,FASTNAN:1,FASTROUND:1,CALLRET:0},perf:{BIGBLOCK:3,STRONGMEM:0,SAFEFLAGS:0,FASTNAN:1,FASTROUND:1,CALLRET:1}};
+const P={low:{n:'Ultra leve',c:{api:'dxvk1',scale:50,fps:30,box:'perf',ram:2,texlow:1,noaa:1}},
+bal:{n:'Equilibrado',c:{api:'dxvk1',scale:75,fps:30,box:'perf',ram:3,texlow:0,noaa:1}},
+perf:{n:'Desempenho',c:{api:'dxvk2',scale:100,fps:60,box:'perf',ram:4,texlow:0,noaa:0}}};
+const HI={dxvk1:'DXVK 1.10.3 com o Vulkan nativo da Mali: a opção mais compatível e leve.',dxvk2:'DXVK 2.x exige Vulkan 1.3 (Mali-G610 ou mais nova).',wined3d:'WineD3D com VirGL (OpenGL ES): mais lento, mas abre jogos que falham no Vulkan.',zink:'WineD3D com Zink (OpenGL sobre Vulkan): teste se o VirGL travar.'};
+let L='',S={tab:'home',g:[],c:{preset:'bal',async:1,shc:1,esync:1,zram:1,svc:1,therm:1,mtk:1,glt:1,gov:'schedutil',soc:'d7',dev:6,cores:[4,5,6,7],...P.bal.c}};
+try{const d=JSON.parse(localStorage.getItem('mh')||'null');if(d){S.g=d.g||[];Object.assign(S.c,d.c)}}catch(e){}
+const save=()=>{try{localStorage.setItem('mh',JSON.stringify({g:S.g,c:S.c}))}catch(e){}};
+const set=(k,v)=>{S.c[k]=v;if(k!=='preset')S.c.preset='custom';save();draw()};
+const pre=id=>{Object.assign(S.c,P[id].c,{preset:id});save();draw()};
+const go=t=>{S.tab=t;draw();scrollTo(0,0)};
+const nc=Math.min(8,Math.max(4,navigator.hardwareConcurrency||8));
+const bigs=()=>S.c.soc==='d8'?[4,5,6,7]:[6,7];
+const tc=i=>{const a=S.c.cores,j=a.indexOf(i);if(j<0)a.push(i);else if(a.length>1)a.splice(j,1);a.sort((x,y)=>x-y);set('cores',a)};
+const rec=()=>{const c=S.c;pre(c.soc==='d8'&&c.dev>=6?'perf':c.soc==='d7'&&c.dev>=6?'bal':'low')};
+const seg=(k,o)=>o.map(([v,l])=>`<button class="ch${S.c[k]===v?' on':''}" onclick="set('${k}',${JSON.stringify(v).replace(/"/g,"'")})">${l}</button>`).join('');
+const tog=(k,l,d)=>`<div class="tr"><div>${l}<small>${d}</small></div><button class="sw${S.c[k]?' on':''}" aria-label="${l}" onclick="set('${k}',${S.c[k]?0:1})"></button></div>`;
+const sld=(k,l,a,b,s,u)=>`<div class="lb"><span>${l}</span><b>${S.c[k]}${u}</b></div><input type="range" min="${a}" max="${b}" step="${s}" value="${S.c[k]}" oninput="this.previousElementSibling.lastElementChild.textContent=this.value+'${u}'" onchange="set('${k}',+this.value)">`;
+const meter=(l,t,r)=>`<div class="lb"><span>${l}</span><b>${t}</b></div><div class="bar"><i style="width:${Math.min(100,Math.round(r*100))}%;${r>1?'background:var(--bad)':''}"></i></div>`;
+const est=()=>{const c=S.c,free=Math.max(1,c.dev-2.2),need=c.ram+.5+(c.api==='dxvk2'?.2:0),load=Math.round((c.scale/100)**2*c.fps/60*100*(c.texlow?.85:1));return{free,need,load,lbl:load<35?'Leve':load<65?'Média':'Pesada'}};
+const exp=g=>{const c=S.c,b=BX[c.box],o=['# MaliHub: '+(g?g.n:'perfil global'),'','# ambiente','WINEDEBUG=-all','WINEESYNC='+c.esync,'MALLOC_ARENA_MAX=2','PULSE_LATENCY_MSEC=60','MESA_NO_ERROR=1','BOX64_LOG=0'];
+for(const k in b)o.push('BOX64_DYNAREC_'+k+'='+b[k]);
+if(c.api==='wined3d')o.push('GALLIUM_DRIVER=virpipe','MESA_GL_VERSION_OVERRIDE=3.3');
+if(c.api==='zink')o.push('MESA_LOADER_DRIVER_OVERRIDE=zink');
+if(/wined3d|zink/.test(c.api)&&c.glt)o.push('mesa_glthread=true');
+if(/dxvk/.test(c.api)){o.push('DXVK_ASYNC='+c.async,'DXVK_STATE_CACHE='+c.shc,'DXVK_FRAME_RATE='+c.fps,'','# dxvk.conf','dxgi.maxDeviceMemory = '+Math.round(c.ram*512));
+if(c.noaa)o.push('d3d11.samplerAnisotropy = 0','d3d9.samplerAnisotropy = 0');o.push('d3d11.maxTessFactor = '+(c.scale<=60?8:16))}
+o.push('','# CPU e MediaTek','taskset -c '+c.cores.join(',')+' box64 wine64 "'+(g&&g.f||'game.exe')+'"');if(g&&g.a===32)o.push('# exe de 32 bits: exige suporte a 32 bits (Box86 ou Wine WoW64)');
+if(c.mtk)o.push('# ative o modo desempenho do aparelho antes de abrir');
+o.push('# governor: '+c.gov+' | zRAM: '+(c.zram?'ligado':'desligado'),'','# app','resolucao_interna='+c.scale+'%','limite_fps='+c.fps,'guarda_termica='+(c.therm?'40C reduz fps em 25%':'desligada'),'ram_conteiner_gb='+c.ram,'texturas_reduzidas='+c.texlow,'servicos_wine_off='+c.svc);
+return o.join('\n')};
+function home(){const e=est();return `<section class="hero"><h1>Jogos de PC no seu Mali</h1><p>Perfis pensados para GPU Mali e chips MediaTek, com até 6 GB de RAM.</p><div class="row"><button class="bt" onclick="go('lib')">Adicionar jogo</button><button class="bt g" onclick="go('opt')">Otimizar</button></div></section>
+<div class="cd"><div class="lb" style="margin-top:0"><span>Perfil ativo</span><b>${P[S.c.preset]?P[S.c.preset].n:'Personalizado'}</b></div>${meter('RAM do contêiner',S.c.ram+' de '+e.free.toFixed(1)+' GB livres',e.need/e.free)}${meter('Carga gráfica estimada',e.lbl,e.load/100)}</div>
+<div class="cd"><h3>Dicas para Mali</h3><ul><li>A Mali divide a RAM com o sistema. Texturas reduzidas poupam banda e esquentam menos.</li><li>A Mali não tem Turnip (driver de Adreno). Use DXVK 1.10.3 e, se falhar, WineD3D com VirGL.</li><li>Limite em 30 FPS: o tempo de quadro fica estável e o chip MediaTek segura o clock.</li></ul></div>`}
+function lib(){return `<div class="cd"><h3>Adicionar jogo</h3><button class="bt" onclick="chooseExe()">Escolher arquivo .exe</button><input type="file" id="gf" class="fi" tabindex="-1" onchange="pick(this)"><p class="hint">O app lê só o nome, o tamanho e o tipo (32 ou 64 bits). O arquivo não sai do aparelho.</p><p class="hint" id="fm" style="color:var(--bad)"></p><div class="row" style="margin-top:12px"><input type="text" id="gn" placeholder="Ou digite o nome do jogo" maxlength="40"><button class="ch" onclick="add()">Adicionar</button></div></div>`+(S.g.length?`<div class="gr">${S.g.map((g,i)=>`<div class="gc"><div class="cv" style="background:linear-gradient(135deg,hsl(${g.h} 65% 45%),hsl(${(g.h+60)%360} 65% 28%))">${E(g.n[0].toUpperCase())}</div><b>${E(g.n)}</b><span class="mu">${g.f?(g.a?g.a+' bits, ':'')+g.s+' MB':'sem arquivo .exe'}</span><div class="row"><button class="bt s" onclick="play(${i})">Jogar</button><button class="ch" aria-label="Remover" onclick="del(${i})">✕</button></div></div>`).join('')}</div>`:`<p class="em">Sua biblioteca está vazia. Adicione um jogo para gerar o perfil de lançamento dele.</p>`)}
+const hue=n=>[...n].reduce((a,c)=>a+c.charCodeAt(0),0)*37%360;
+function add(){const n=$('#gn').value.trim();if(!n)return;S.g.push({n,h:hue(n)});save();draw()}
+function pick(el){const f=el.files[0];if(!f)return;const n=(f.name.replace(/\.exe$/i,'').replace(/[_.]+/g,' ').trim()||f.name).slice(0,40),g={n,h:hue(n),f:f.name,s:Math.max(1,Math.round(f.size/1048576)),a:0};
+f.slice(0,4096).arrayBuffer().then(b=>{try{const v=new DataView(b);if(v.getUint16(0)===0x4d5a){g.ok=1;const p=v.getUint32(60,true);if(v.getUint32(p)===0x50450000){const m=v.getUint16(p+4,true);g.a=m===0x8664?64:m===0x14c?32:0}}}catch(e){}}).catch(()=>{}).then(()=>{if(!g.ok){$('#fm').textContent='Esse arquivo não parece ser um executável do Windows (.exe).';return}delete g.ok;S.g.push(g);save();draw()})}
+function del(i){S.g.splice(i,1);save();draw()}
+function play(i){const g=S.g[i];L=exp(g);$('#ov').innerHTML=`<div class="sh"><b>${E(g.n)}</b><p class="mu">Perfil de lançamento pronto. O motor Wine + Box64 do app nativo lê estas variáveis.</p><pre class="cod">${E(L)}</pre><div class="row">${window.Android&&g.u?`<button class="bt" onclick="run(${i})">Iniciar</button>`:''}<button class="bt" onclick="cp(this)">Copiar</button><button class="ch" onclick="$('#ov').hidden=true">Fechar</button></div><p class="hint" id="rs"></p></div>`;$('#ov').hidden=false}
+function chooseExe(){if(window.Android&&Android.pickExe)Android.pickExe();else $('#gf').click()}
+window.onExePicked=j=>{const x=typeof j==='string'?JSON.parse(j):j;if(!x.ok){const m=$('#fm');if(m)m.textContent=x.msg||'Arquivo inválido.';return}const n=(x.name.replace(/\.exe$/i,'').replace(/[_.]+/g,' ').trim()||x.name).slice(0,40);S.g.push({n,h:hue(n),f:x.name,s:Math.max(1,Math.round(x.size/1048576)),a:x.arch||0,u:x.uri});save();draw()};
+function run(i){const g=S.g[i];let r;try{r=JSON.parse(Android.launch(g.u,exp(g)))}catch(e){r={msg:'Falha ao chamar o motor.'}}$('#rs').textContent=r.msg||''}
+function cp(b){try{navigator.clipboard.writeText(L).then(()=>b.textContent='Copiado',()=>b.textContent='Selecione e copie')}catch(e){b.textContent='Selecione e copie'}}
+function opt(){const c=S.c,e=est();L=exp();const n=nc;
+return `<div class="cd"><h3>Seu aparelho</h3><div class="lb"><span>Chip MediaTek</span></div><div class="row">${seg('soc',[['g','Helio G'],['d7','Dimensity 700–1100'],['d8','Dimensity 8000+']])}</div><div class="lb"><span>RAM do aparelho</span></div><div class="row">${seg('dev',[[3,'3 GB'],[4,'4 GB'],[6,'6 GB'],[8,'8 GB']])}</div><div class="row" style="margin-top:12px"><button class="bt" onclick="rec()">Aplicar recomendação</button></div></div>
+<div class="cd"><h3>Perfil</h3><div class="row">${Object.keys(P).map(id=>`<button class="ch${c.preset===id?' on':''}" onclick="pre('${id}')">${P[id].n}</button>`).join('')}</div></div>
+<div class="cd"><h3>Gráficos Mali</h3><div class="row">${seg('api',[['dxvk1','DXVK 1.10'],['dxvk2','DXVK 2.x'],['wined3d','VirGL'],['zink','Zink']])}</div><p class="hint">${HI[c.api]}</p>${sld('scale','Resolução interna',40,100,5,'%')}<div class="lb"><span>Limite de FPS</span></div><div class="row">${seg('fps',[[20,'20'],[30,'30'],[45,'45'],[60,'60']])}</div>${tog('async','Shaders assíncronos','Evita engasgos ao compilar shaders.')}${tog('shc','Cache de shaders','Guarda os shaders no disco entre sessões.')}${tog('texlow','Texturas reduzidas','Menos banda de memória, menos calor.')}${tog('noaa','Sem anti-aliasing nem anisotrópico','Poupa banda em GPU de memória compartilhada.')}${tog('glt','Thread de OpenGL','Vale para VirGL e Zink.')}</div>
+<div class="cd"><h3>CPU e MediaTek</h3><div class="lb" style="margin-top:0"><span>Preset do Box64</span></div><div class="row">${seg('box',[['stab','Estável'],['mid','Equilíbrio'],['perf','Desempenho']])}</div><div class="lb"><span>Núcleos do jogo</span></div><div class="row">${Array.from({length:n},(_,i)=>`<button class="ch${c.cores.includes(i)?' on':''}" onclick="tc(${i})">${i}</button>`).join('')}</div><div class="row" style="margin-top:8px"><button class="ch" onclick="set('cores',bigs())">Só grandes</button><button class="ch" onclick="set('cores',[4,5,6,7].filter(x=>x<${n}))">Médios e grandes</button><button class="ch" onclick="set('cores',[...Array(${n}).keys()])">Todos</button></div><p class="hint">Deixe os núcleos 0 e 1 livres para o Android e o áudio.</p><div class="lb"><span>Governor</span></div><div class="row">${seg('gov',[['schedutil','schedutil'],['performance','performance (root)']])}</div>${tog('esync','Esync','Sincronização mais leve entre threads do Wine.')}${tog('mtk','Modo desempenho MediaTek','Ativa o modo de jogo do aparelho, se existir.')}${tog('therm','Guarda térmica','Corta 25% do FPS acima de 40 °C.')}</div>
+<div class="cd"><h3>Memória</h3>${sld('ram','RAM do contêiner',1,4,.5,' GB')}${tog('zram','zRAM','Comprime a RAM em vez de matar apps.')}${tog('svc','Desligar serviços do Wine','Libera RAM e CPU em segundo plano.')}</div>
+<div class="cd"><h3>Resultado</h3>${meter('RAM necessária',e.need.toFixed(1)+' de '+e.free.toFixed(1)+' GB',e.need/e.free)}${meter('Carga gráfica estimada',e.lbl,e.load/100)}<p class="hint">Estimativas simples, ajuste conforme o jogo. Reservei 2,2 GB para o Android.</p><pre class="cod">${E(L)}</pre><button class="bt" onclick="cp(this)">Copiar perfil</button></div>`}
+function draw(){$('#v').innerHTML=({home,lib,opt})[S.tab]();document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===S.tab))}
+(function(){if(window.Android){try{const d=JSON.parse(Android.deviceInfo()),g=d.ramMb/1024;S.c.dev=g>7?8:g>5?6:g>3.4?4:3}catch(e){}}let t='GPU não confirmada';try{const g=document.createElement('canvas').getContext('webgl'),x=g.getExtension('WEBGL_debug_renderer_info'),r=x?g.getParameter(x.UNMASKED_RENDERER_WEBGL):'';if(/mali/i.test(r))t='Mali detectada'}catch(e){}$('#gp').textContent=t;draw()})();
+</script></body></html>
